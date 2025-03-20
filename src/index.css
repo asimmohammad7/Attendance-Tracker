@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+}
+
+h1, h2 {
+  color: #2c3e50;
+  text-align: center;
+}
+
+.attendance-tracker {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.student-list {
+  list-style: none;
+  padding: 0;
+}
+
+.student-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.3s ease;
+}
+
+.student-list li:hover {
+  background-color: #f0f8ff;
+}
+
+.student-list li:last-child {
+  border-bottom: none;
+}
+
+.toggle-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-btn.present {
+  background-color: #27ae60;
+  color: white;
+}
+
+.toggle-btn.present:hover {
+  background-color: #1e8449;
+  transform: scale(1.05);
+}
+
+.toggle-btn.absent {
+  background-color: #c0392b;
+  color: white;
+}
+
+.toggle-btn.absent:hover {
+  background-color: #922b21;
+  transform: scale(1.05);
+}
+
+input[type="text"] {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 180px;
+  transition: box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(41, 128, 185, 0.6);
+}
+
+button {
+  margin: 5px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #2980b9;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #21618c;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .student-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
