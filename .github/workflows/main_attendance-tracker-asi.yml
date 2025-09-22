@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
-          node-version: '22.x'
+          node-version: '22.x'  # ✅ Updated Node.js version to a valid LTS
 
       - name: npm install and build
         run: |
@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: build   # <-- only upload the build folder
+          path: build   # ✅ Only upload the build folder
 
   deploy:
     runs-on: ubuntu-latest
@@ -56,5 +56,4 @@ jobs:
         with:
           app-name: 'attendance-tracker-asi'
           slot-name: 'Production'
-          package: build   # <-- deploy from build folder
-
+          package: build   # ✅ Deploy only the build folder
