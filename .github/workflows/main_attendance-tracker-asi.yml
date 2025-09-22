@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: .
+          path: build   # <-- only upload the build folder
 
   deploy:
     runs-on: ubuntu-latest
@@ -56,4 +56,4 @@ jobs:
         with:
           app-name: 'attendance-tracker-asi'
           slot-name: 'Production'
-          package: .
+          package: build   # <-- deploy from build folder
