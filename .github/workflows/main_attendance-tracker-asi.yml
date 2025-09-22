@@ -57,3 +57,4 @@ jobs:
           app-name: 'attendance-tracker-asi'
           slot-name: 'Production'
           package: build   # <-- deploy from build folder
+
