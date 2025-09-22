@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: build       # ✅ Upload the entire build folder
+          path: build       # Upload the entire build folder contents
 
   deploy:
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: node-app
-          path: artifact   # ✅ Download artifact into ./artifact
+          path: artifact   # Download build contents into ./artifact
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -57,4 +57,4 @@ jobs:
         with:
           app-name: 'attendance-tracker-asi'
           slot-name: 'Production'
-          package: artifact/node-app/build   # ✅ Deploy the build folder inside artifact
+          package: artifact   # Deploy directly from downloaded build contents
