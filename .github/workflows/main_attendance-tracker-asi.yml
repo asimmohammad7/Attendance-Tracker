@@ -58,3 +58,4 @@ jobs:
           app-name: 'attendance-tracker-asi'
           slot-name: 'Production'
           package: artifact   # Deploy directly from downloaded build contents
+
