@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read # required for actions/checkout
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: build   # only upload the build folder
+          path: build/   # include trailing slash to ensure folder is uploaded
 
   deploy:
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: node-app
-          path: ./artifact   # download artifact into ./artifact
+          path: artifact   # GitHub automatically creates artifact/node-app/build
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -57,4 +57,4 @@ jobs:
         with:
           app-name: 'attendance-tracker-asi'
           slot-name: 'Production'
-          package: ./artifact/build   # deploy the build folder from the artifact
+          package: artifact/node-app/build   # ✅ Correct folder path inside artifact
